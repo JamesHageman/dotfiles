@@ -90,6 +90,10 @@ set relativenumber
 set tabstop=2 shiftwidth=2 expandtab
 set scrolloff=10
 
+set ignorecase
+set smartcase
+set incsearch
+
 let g:javascript_conceal_arrow_function = "⇒"
 
 nnoremap <C-U> 11kzz
