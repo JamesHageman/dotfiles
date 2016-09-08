@@ -53,7 +53,7 @@ plugins=(git npm sublime)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:./node_modules/.bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -83,6 +83,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export EDITOR='nvim'
+
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias gs='git status '
@@ -91,6 +93,7 @@ alias gb='git branch '
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gd='git diff'
+alias gdu='git diff upstream/master '
 alias go='git checkout '
 alias gl='git log '
 alias gpo='git push origin '
@@ -100,8 +103,13 @@ alias remaster='git fetch upstream master && git rebase upstream/master'
 alias ni='npm install '
 alias nr='npm run '
 
-alias vrc='vim ~/.vimrc '
+alias vrc='nvim ~/.config/nvim/init.vim '
+alias vim='nvim'
 
 export NVM_DIR="/Users/jameshageman/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+# export TERM=xterm-256color-italic
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

@@ -24,6 +24,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'joshdick/onedark.vim'
+Plugin 'joshdick/airline-onedark.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -54,11 +56,11 @@ endif
 
 
 
-
 syntax on
 colorscheme onedark
 set number
-set relativenumber
+"set relativenumber
+set cursorline
 set backspace=indent,eol,start
 set tabstop=2 shiftwidth=2 expandtab
 set scrolloff=10
@@ -74,10 +76,10 @@ let g:elm_format_autosave = 1
 
 let g:javascript_conceal_arrow_function = "⇒"
 
-nnoremap <C-U> 11kzz
-nnoremap <C-D> 11jzz
-nmap <Left> gT
-nmap <Right> gt
+noremap <C-U> 11kzz
+noremap <C-D> 11jzz
+nmap H gT
+nmap L gt
 
 :imap jj <Esc>
 
@@ -99,6 +101,7 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_sep = ''
 
+
 " Syntastic
 let g:syntastic_mode_map = {
     \ "mode": "active",
@@ -115,6 +118,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 5
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_html_checkers=['']
 
 " NERDTree opts
 map <C-n> :NERDTreeToggle<CR>
@@ -137,3 +141,14 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" fix ctrl-h in nvim
+if has('nvim')
+  nmap <BS> <C-W>h
+endif
+
+hi htmlArg gui=italic
+"hi Comment gui=italic
+hi Type    gui=italic
+hi htmlArg cterm=italic
+"hi Comment cterm=italic
+hi Type    cterm=italic
