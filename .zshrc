@@ -5,7 +5,8 @@ export ZSH=/Users/jameshageman/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="theunraveler"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,7 +50,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm sublime)
+plugins=(git npm)
 
 # User configuration
 
@@ -84,9 +85,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export EDITOR='nvim'
+export VISUAL="$EDITOR"
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+alias git='hub'
 alias gs='git status '
 alias ga='git add '
 alias gb='git branch '
@@ -95,7 +98,7 @@ alias gcm='git commit -m'
 alias gd='git diff'
 alias gdu='git diff upstream/master '
 alias go='git checkout '
-alias gl='git log '
+alias gl='git log --oneline --decorate --graph '
 alias gpo='git push origin '
 alias gpu='git push upstream '
 alias remaster='git fetch upstream master && git rebase upstream/master'
@@ -103,13 +106,16 @@ alias remaster='git fetch upstream master && git rebase upstream/master'
 alias ni='npm install '
 alias nr='npm run '
 
+alias c='clear'
+
 alias vrc='nvim ~/.config/nvim/init.vim '
 alias vim='nvim'
+alias vi='nvim'
 
 export NVM_DIR="/Users/jameshageman/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-# export TERM=xterm-256color-italic
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
