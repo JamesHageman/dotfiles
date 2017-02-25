@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/jameshageman/Documents/Github/aldo-poc/src'
-let g:netrw_dirhist_2='/Users/jameshageman/Documents/Github/aldo-poc/src/components'
-let g:netrw_dirhist_3='/Users/jameshageman/Documents/Github/aldo-poc/src/components/btn'
-let g:netrw_dirhist_4='/Users/jameshageman/Documents/Github/aldo-poc'
-let g:netrw_dirhist_5='/Users/jameshageman'
-let g:netrw_dirhist_6='/Users/jameshageman/Documents/Github/aldo-poc'
-let g:netrw_dirhist_7='/Users/jameshageman/Documents/Github/aldo-poc/src/sagas'
