@@ -6,7 +6,7 @@ export ZSH=/Users/jameshageman/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="theunraveler"
+ZSH_THEME="lambda"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -50,7 +50,7 @@ ZSH_THEME="theunraveler"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm)
+plugins=(git npm zsh-syntax-highlighting)
 
 # User configuration
 
@@ -111,6 +111,8 @@ alias c='clear'
 alias vrc='nvim ~/.config/nvim/init.vim '
 alias vim='nvim'
 alias vi='nvim'
+alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
+alias ctags="`brew --prefix`/bin/ctags"
 
 export NVM_DIR="/Users/jameshageman/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
