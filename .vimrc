@@ -18,7 +18,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'ervandew/supertab'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'rakr/vim-one'
 Plugin 'flowtype/vim-flow'
@@ -31,6 +30,14 @@ Plugin 'tpope/vim-surround'
 Plugin 'rizzatti/dash.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'ap/vim-buftabline'
+Plugin 'ervandew/supertab'
+if (has("nvim"))
+  Plugin 'Shougo/deoplete.nvim'
+  let g:deoplete#enable_at_startup = 1
+else
+  Plugin 'Shougo/neocomplete.vim'
+  let g:neocomplete#enable_at_startup = 1
+endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -44,7 +51,10 @@ let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
 
 if has('gui_macvim')
-  set guifont=Menlo:h14
+  set macligatures
+  set guifont=PragmataPro:h15
+  "set guifont=Fira\ Code:h14
+  "set guifont=Menlo:h14
   set linespace=3
   " disable scrollbars
   set guioptions-=r
@@ -78,7 +88,7 @@ colorscheme one
 set background=light
 set number
 let g:one_allow_italics = 1
-" set relativenumber
+set relativenumber
 set cursorline
 set backspace=indent,eol,start
 set tabstop=2 shiftwidth=2 expandtab
@@ -172,6 +182,7 @@ nnoremap <Up> :resize -2<CR>
 nnoremap <Down> :resize +2<CR>
 
 imap jk <Esc>
+nmap <C-c> ^
 
 nmap <silent> <leader>d <Plug>DashSearch
 
