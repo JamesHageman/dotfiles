@@ -8,6 +8,7 @@ export ZSH=/Users/jameshageman/.oh-my-zsh
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="lambda"
 
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -85,7 +86,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export EDITOR='nvim'
-export VISUAL="$EDITOR"
+export VISUAL="mvim"
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -119,5 +120,4 @@ export NVM_DIR="/Users/jameshageman/.nvm"
 
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
+export PROMPT="λ %1/%\ \$(git_prompt_info)%{$reset_color%}"

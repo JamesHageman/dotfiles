@@ -30,10 +30,10 @@
 	<true/>
 	<key>Coprocess MRU</key>
 	<array>
-		<string>~/.vim/bundle/vim-iterm2-navigator/switch.py l</string>
 		<string>~/.vim/bundle/vim-iterm2-navigator/switch.py h</string>
-		<string>~/.vim/bundle/vim-iterm2-navigator/switch.py j</string>
 		<string>~/.vim/bundle/vim-iterm2-navigator/switch.py k</string>
+		<string>~/.vim/bundle/vim-iterm2-navigator/switch.py l</string>
+		<string>~/.vim/bundle/vim-iterm2-navigator/switch.py j</string>
 	</array>
 	<key>CopyLastNewline</key>
 	<false/>
@@ -623,30 +623,30 @@
 		<key>0x68-0x100000</key>
 		<dict>
 			<key>Action</key>
-			<integer>35</integer>
+			<integer>18</integer>
 			<key>Text</key>
-			<string>~/.vim/bundle/vim-iterm2-navigator/switch.py h</string>
+			<string></string>
 		</dict>
 		<key>0x6a-0x100000</key>
 		<dict>
 			<key>Action</key>
-			<integer>35</integer>
+			<integer>21</integer>
 			<key>Text</key>
-			<string>~/.vim/bundle/vim-iterm2-navigator/switch.py j</string>
+			<string></string>
 		</dict>
 		<key>0x6b-0x100000</key>
 		<dict>
 			<key>Action</key>
-			<integer>35</integer>
+			<integer>20</integer>
 			<key>Text</key>
-			<string>~/.vim/bundle/vim-iterm2-navigator/switch.py k</string>
+			<string></string>
 		</dict>
 		<key>0x6c-0x100000</key>
 		<dict>
 			<key>Action</key>
-			<integer>35</integer>
+			<integer>19</integer>
 			<key>Text</key>
-			<string>~/.vim/bundle/vim-iterm2-navigator/switch.py l</string>
+			<string></string>
 		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
@@ -798,12 +798,12 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATCG
 		</data>
-		<string>198</string>
+		<string>112</string>
 		<data>
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>322</string>
+		<string>408</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
@@ -815,17 +815,17 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>739 171 750 77 0 0 1680 1027 </string>
+	<string>275 33 750 77 0 0 1920 1177 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>394 368 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>642 690 400 129 0 0 1680 1050 </string>
+	<string>761 760 400 129 0 0 1920 1177 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>532 448 620 429 0 0 1680 1027 </string>
+	<string>652 561 620 429 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>490 315 796 473 0 0 1920 1177 </string>
+	<string>490 252 796 473 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>5 6 1879 1166 0 0 1920 1177 </string>
+	<string>6 8 954 1161 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1039 725 570 452 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1438,7 +1438,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>OperatorMono-Book 13</string>
+			<string>PragmataPro-Regular 14</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Option Key Sends</key>
@@ -1592,7 +1592,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
-			<integer>1</integer>
+			<integer>0</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
@@ -1604,6 +1604,8 @@
 			<key>Use Bright Bold</key>
 			<true/>
 			<key>Use Canonical Parser</key>
+			<false/>
+			<key>Use HFS Plus Mapping</key>
 			<false/>
 			<key>Use Italic Font</key>
 			<true/>
@@ -1727,7 +1729,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-02-24T22:49:05Z</date>
+	<date>2017-03-06T23:30:26Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1775,6 +1777,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.14</string>
+	<string>3.0.15</string>
 </dict>
 </plist>
