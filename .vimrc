@@ -12,25 +12,23 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'ElmCast/elm-vim'
 Plugin 'IN3D/vim-raml'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'rakr/vim-one'
 Plugin 'flowtype/vim-flow'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'zephod/vim-iterm2-navigator'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'rizzatti/dash.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'ap/vim-buftabline'
 Plugin 'ervandew/supertab'
+Plugin 'fatih/vim-go'
 if (has("nvim"))
   Plugin 'Shougo/deoplete.nvim'
   let g:deoplete#enable_at_startup = 1
@@ -100,6 +98,7 @@ set incsearch
 set hlsearch
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
+nnoremap <C-]> g<C-]>
 
 let g:elm_format_autosave = 1
 
@@ -125,8 +124,8 @@ set laststatus=2
 
 set statusline=\ %.50f
 set statusline+=%=%h%m%r%y\ %c,%l/%L\ 
-set listchars=tab:>-,trail:~,extends:>,precedes:<
-set list
+"set listchars="tab:> ,trail:~,extends:>,precedes:<"
+"set list
 
 
 " Syntastic
@@ -155,8 +154,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set colorcolumn=81
 set encoding=utf-8
 
-"ctrlp options
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" fzf options
+nnoremap <C-b> :Buffers<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-P> :Tags<CR>
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
