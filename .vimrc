@@ -29,6 +29,7 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'ap/vim-buftabline'
 Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
+Plugin 'elixir-editors/vim-elixir'
 if (has("nvim"))
   Plugin 'Shougo/deoplete.nvim'
   let g:deoplete#enable_at_startup = 1
@@ -47,6 +48,8 @@ let g:javascript_plugin_flow = 1
 
 " vim-jsx options
 let g:jsx_ext_required = 0
+
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 if has('gui_macvim')
   set macligatures
@@ -98,7 +101,6 @@ set incsearch
 set hlsearch
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
-nnoremap <C-]> g<C-]>
 
 let g:elm_format_autosave = 1
 
@@ -157,7 +159,7 @@ set encoding=utf-8
 " fzf options
 nnoremap <C-b> :Buffers<CR>
 nnoremap <C-p> :Files<CR>
-nnoremap <C-P> :Tags<CR>
+nnoremap <C-]> :Tags<CR>
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
