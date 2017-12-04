@@ -30,6 +30,8 @@ Plugin 'ap/vim-buftabline'
 Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
 Plugin 'elixir-editors/vim-elixir'
+Plugin 'ElmCast/elm-vim'
+Plugin 'autozimu/LanguageClient-neovim'
 if (has("nvim"))
   Plugin 'Shougo/deoplete.nvim'
   let g:deoplete#enable_at_startup = 1
@@ -51,11 +53,24 @@ let g:jsx_ext_required = 0
 
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
+
+" LanguageClient stuff
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'haskell': ['hie', '--lsp'],
+    \ }
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+
+nnoremap <silent> <c-k> :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+
 if has('gui_macvim')
   set macligatures
   set guifont=PragmataPro:h15
-  "set guifont=Fira\ Code:h14
-  "set guifont=Menlo:h14
   set linespace=3
   " disable scrollbars
   set guioptions-=r
