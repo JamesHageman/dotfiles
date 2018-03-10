@@ -13,7 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'IN3D/vim-raml'
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
@@ -34,11 +34,16 @@ Plugin 'ElmCast/elm-vim'
 Plugin 'autozimu/LanguageClient-neovim'
 if (has("nvim"))
   Plugin 'Shougo/deoplete.nvim'
+  Plugin 'zchee/deoplete-go'
   let g:deoplete#enable_at_startup = 1
 else
   Plugin 'Shougo/neocomplete.vim'
   let g:neocomplete#enable_at_startup = 1
 endif
+
+let g:go_fmt_command = "goimports"
+let g:ale_linters = {'go': ['gometalinter', 'gofmt']}
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -104,7 +109,6 @@ colorscheme one
 set background=light
 set number
 let g:one_allow_italics = 1
-set relativenumber
 set cursorline
 set backspace=indent,eol,start
 set tabstop=2 shiftwidth=2 expandtab
@@ -144,24 +148,6 @@ set statusline+=%=%h%m%r%y\ %c,%l/%L\
 "set listchars="tab:> ,trail:~,extends:>,precedes:<"
 "set list
 
-
-" Syntastic
-let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "active_filetypes": ["javascript.jsx"],
-    \ "passive_filetypes": [] }
-
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_loc_list_height = 5
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_html_checkers=['']
 
 " NERDTree opts
 map <C-n> :NERDTreeToggle<CR>
@@ -208,3 +194,4 @@ set tags=tags
 
 autocmd FileType javascript.jsx set formatprg=prettier\ --stdin
 
+call ale#Set('cpp_gcc_options', '-std=c++14 -Wall -I/opt/X11/include')
