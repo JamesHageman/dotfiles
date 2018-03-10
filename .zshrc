@@ -6,7 +6,7 @@ export ZSH=/Users/jameshageman/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="lambda"
+ZSH_THEME="robbyrussell"
 
 
 # Uncomment the following line to use case-sensitive completion.
@@ -55,10 +55,17 @@ plugins=(git npm zsh-syntax-highlighting)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:./node_modules/.bin:$PATH"
+export GOPATH="$HOME/Documents/Github/personal/go"
+export GOBIN="$GOPATH/bin"
+
+export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:./node_modules/.bin:$GOBIN:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+# source ~/google-cloud-sdk/path.zsh.inc
+# source ~/google-cloud-sdk/completion.zsh.inc
+# export PROJECT_ID="$(gcloud config get-value project -q)"
+
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -90,6 +97,7 @@ export VISUAL="mvim"
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+alias dc='docker-compose'
 alias git='hub'
 alias gs='git status '
 alias ga='git add '
@@ -98,11 +106,14 @@ alias gc='git commit'
 alias gcm='git commit -m'
 alias gd='git diff'
 alias gdu='git diff upstream/master '
-alias go='git checkout '
+alias gco='git checkout'
 alias gl='git log --oneline --decorate --graph '
 alias gpo='git push origin '
 alias gpu='git push upstream '
 alias remaster='git fetch upstream master && git rebase upstream/master'
+alias kc='kubectl'
+alias kg='kubectl get'
+alias kd='kubectl describe'
 
 alias ni='npm install '
 alias nr='npm run '
@@ -120,4 +131,10 @@ export NVM_DIR="/Users/jameshageman/.nvm"
 
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-export PROMPT="λ %1/%\ \$(git_prompt_info)%{$reset_color%}"
+function chpwd() {
+  if [ -r $PWD/.zsh_config ]; then
+    source $PWD/.zsh_config
+  fi
+}
+
+chpwd
