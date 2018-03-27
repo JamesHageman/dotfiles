@@ -89,7 +89,7 @@ noremap <Leader>q :q<CR>
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-"if (empty($TMUX)) 
+"if (empty($TMUX))
   if (has("nvim"))
     "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -144,7 +144,7 @@ endif
 set laststatus=2
 
 set statusline=\ %.50f
-set statusline+=%=%h%m%r%y\ %c,%l/%L\ 
+set statusline+=%=%h%m%r%y\ %c,%l/%L\
 "set listchars="tab:> ,trail:~,extends:>,precedes:<"
 "set list
 
@@ -153,6 +153,7 @@ set statusline+=%=%h%m%r%y\ %c,%l/%L\
 map <C-n> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let NERDTreeIgnore = ['\.class$']
 
 set colorcolumn=81
 set encoding=utf-8
