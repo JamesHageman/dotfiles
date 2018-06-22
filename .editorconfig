@@ -8,6 +8,15 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 2
 
+[*.cfc]
+trim_trailing_whitespace = false
+
+[*.cfm]
+trim_trailing_whitespace = false
+
+[*.xml]
+trim_trailing_whitespace = false
+
 [*.elm]
 indent_size = 4
 
