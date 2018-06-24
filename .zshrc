@@ -8,7 +8,7 @@ export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:./nod
 
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR='vi'
+export EDITOR='vim'
 export VISUAL="mvim"
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -28,8 +28,7 @@ alias kc='kubectl'
 alias kg='kubectl get'
 alias kd='kubectl describe'
 
-alias vrc='nvim ~/.config/nvim/init.vim '
-alias vim='nvim'
+alias nv='nvim'
 alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 alias mvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 alias ctags="`brew --prefix`/bin/ctags"
