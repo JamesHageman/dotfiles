@@ -22,10 +22,6 @@ if (has("nvim"))
   let g:deoplete#enable_at_startup = 1
 endif
 
-" Commented out due to slow startup time
-"Plugin 'airblade/vim-gitgutter'
-"Plugin 'editorconfig/editorconfig-vim'
-
 call vundle#end()
 filetype plugin indent on
 
@@ -73,15 +69,21 @@ nnoremap <CR> :noh<CR><CR>
 imap jk <Esc>
 nmap <C-c> ^
 nmap ; :
-map <C-n> :Explore<CR>
+map <C-n> :call MyExplore()<CR>
+
+function MyExplore()
+  if (has("nvim"))
+    NERDTree
+  elseif getbufvar(winbufnr(winnr()), "&filetype") == "netrw"
+    Rexplore " toggle netrw
+  else
+    Explore " open netrw for the first time
+  endif
+endfunction
 
 function Enter()
   if argc() == 0 && !exists("s:std_in")
-    if (has("nvim"))
-      NERDTree
-    else
-      Explore
-    endif
+    call MyExplore()
   endif
 endfunction
 
