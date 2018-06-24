@@ -4,12 +4,23 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'ap/vim-buftabline'
 Plugin 'ervandew/supertab'
 Plugin 'rakr/vim-one'
+
+if (has("nvim"))
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'airblade/vim-gitgutter'
+  Plugin 'editorconfig/editorconfig-vim'
+  Plugin 'w0rp/ale'
+  Plugin 'fatih/vim-go'
+  Plugin 'Shougo/deoplete.nvim'
+  Plugin 'zchee/deoplete-go'
+  Plugin 'autozimu/LanguageClient-neovim'
+  let g:deoplete#enable_at_startup = 1
+endif
 
 " Commented out due to slow startup time
 "Plugin 'airblade/vim-gitgutter'
@@ -62,13 +73,25 @@ nnoremap <CR> :noh<CR><CR>
 imap jk <Esc>
 nmap <C-c> ^
 nmap ; :
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :Explore<CR>
+
+function Enter()
+  if argc() == 0 && !exists("s:std_in")
+    if (has("nvim"))
+      NERDTree
+    else
+      Explore
+    endif
+  endif
+endfunction
 
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * call Enter()
 
 if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  call ale#Set('cpp_gcc_options', '-std=c++14 -Wall -I/opt/X11/include')
+  map <C-n> :NERDTreeToggle<CR>
 endif
 
 if (has("termguicolors"))

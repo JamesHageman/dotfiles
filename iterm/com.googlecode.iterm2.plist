@@ -841,21 +841,23 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>275 33 750 77 0 0 1920 1177 </string>
+	<string>418 116 750 77 0 0 1680 1027 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>394 368 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>640 674 400 129 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>492 303 700 622 0 0 1680 1027 </string>
+	<string>490 303 700 622 0 0 1680 1027 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>269 126 606 469 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>385 469 918 452 0 0 1680 1027 </string>
+	<string>167 616 918 394 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1680 1027 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>5 8 836 1019 0 0 1680 1027 </string>
+	<string>842 0 836 1027 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>4 31 1256 996 0 0 1680 1027 </string>
+	<string>0 0 1680 1027 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>372 266 1207 741 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
@@ -1051,9 +1053,9 @@
 				<key>Blue Component</key>
 				<real>0.0</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.1491314172744751</real>
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
@@ -1100,11 +1102,11 @@
 				<key>Blue Component</key>
 				<real>1</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.91000000000000003</real>
+				<real>0.9268307089805603</real>
 				<key>Red Component</key>
-				<real>0.65000000000000002</real>
+				<real>0.70213186740875244</real>
 			</dict>
 			<key>Cursor Text Color</key>
 			<dict>
@@ -1445,13 +1447,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.67800000000000005</real>
+				<real>0.73423302173614502</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.27000000000000002</real>
+				<real>0.35916060209274292</real>
 				<key>Red Component</key>
-				<real>0.023</real>
+				<real>0.0</real>
 			</dict>
 			<key>Log Directory</key>
 			<string></string>
@@ -1466,9 +1468,11 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>PragmataPro-Regular 14</string>
+			<string>PragmataPro-Regular 15</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
+			<key>Open Toolbelt</key>
+			<false/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1510,7 +1514,7 @@
 				<key>editor</key>
 				<string>org.vim.MacVim</string>
 				<key>text</key>
-				<string>vim \1</string>
+				<string>mvim \1</string>
 			</dict>
 			<key>Send Code When Idle</key>
 			<false/>
@@ -1640,7 +1644,7 @@
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1.0227844973644578</real>
+			<real>1</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -2013,7 +2017,9 @@
 				<real>0.60773354768753052</real>
 			</dict>
 			<key>Guid</key>
-			<string>7CF60DAF-5093-4BAE-9C9F-7007EA891B87</string>
+			<string>C43FE1F7-A24D-4834-87BE-36163E4FABC1</string>
+			<key>Has Hotkey</key>
+			<false/>
 			<key>Hide After Opening</key>
 			<false/>
 			<key>Horizontal Spacing</key>
@@ -2338,9 +2344,9 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>PragmataPro-Regular 14</string>
+			<string>PragmataPro-Regular 15</string>
 			<key>Only The Default BG Color Uses Transparency</key>
-			<false/>
+			<true/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2390,14 +2396,14 @@
 				<key>editor</key>
 				<string>org.vim.MacVim</string>
 				<key>text</key>
-				<string>vim \1</string>
+				<string>mvim \1</string>
 			</dict>
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Set Local Environment Vars</key>
 			<true/>
 			<key>Shortcut</key>
-			<string></string>
+			<string>D</string>
 			<key>Silence Bell</key>
 			<false/>
 			<key>Smart Cursor Color</key>
@@ -2637,7 +2643,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-05-06T21:43:16Z</date>
+	<date>2018-06-22T16:18:28Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -2693,6 +2699,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.6beta5</string>
+	<string>3.2.0beta4</string>
 </dict>
 </plist>
