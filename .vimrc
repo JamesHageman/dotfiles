@@ -94,6 +94,9 @@ if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   call ale#Set('cpp_gcc_options', '-std=c++14 -Wall -I/opt/X11/include')
   map <C-n> :NERDTreeToggle<CR>
+  set rtp+=~/.vim/bundle/LanguageClient-neovim
+  let g:ale_linters = {'go': ['gometalinter', 'gofmt'], 'python': ['pycodestyle']}
+  let g:ale_fixers = {'python': ['autopep8']}
 endif
 
 if (has("termguicolors"))
