@@ -42,8 +42,10 @@ else
 endif
 
 let g:go_fmt_command = "goimports"
-let g:ale_linters = {'go': ['gometalinter', 'gofmt']}
+let g:ale_linters = {'go': ['gometalinter', 'gofmt'], 'python': ['pycodestyle']}
+let g:ale_fixers = {'python': ['autopep8']}
 
+set rtp+=~/.vim/bundle/LanguageClient-neovim
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -161,7 +163,7 @@ set encoding=utf-8
 " fzf options
 nnoremap <C-b> :Buffers<CR>
 nnoremap <C-p> :Files<CR>
-nnoremap <C-]> :Tags<CR>
+"nnoremap <C-]> :Tags<CR>
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -187,6 +189,7 @@ nnoremap <Up> :resize -2<CR>
 nnoremap <Down> :resize +2<CR>
 
 imap jk <Esc>
+tnoremap jk <C-\><C-n>
 nmap <C-c> ^
 
 nmap <silent> <leader>d <Plug>DashSearch

@@ -55,10 +55,11 @@ plugins=(git npm zsh-syntax-highlighting)
 
 # User configuration
 
-export GOPATH="$HOME/Documents/Github/personal/go"
+export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
+mkdir -p $GOBIN
 
-export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:./node_modules/.bin:$GOBIN:$PATH"
+export PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:./node_modules/.bin:$GOBIN:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -93,12 +94,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export EDITOR='nvim'
-export VISUAL="mvim"
+export VISUAL='nvim'
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias dc='docker-compose'
-alias git='hub'
 alias gs='git status '
 alias ga='git add '
 alias gb='git branch '
@@ -126,10 +126,19 @@ alias vi='nvim'
 alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 alias ctags="`brew --prefix`/bin/ctags"
 
+alias jdk7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
+alias jdk8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
+alias jdk9='export JAVA_HOME=$(/usr/libexec/java_home -v 9)'
+alias java='java -Djava.awt.headless=true'
+
 export NVM_DIR="/Users/jameshageman/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+#eval "$(rbenv init -)"
+eval "$(chef shell-init zsh)"
 
 function chpwd() {
   if [ -r $PWD/.zsh_config ]; then
@@ -138,3 +147,11 @@ function chpwd() {
 }
 
 chpwd
+
+PATH="/Users/jameshageman/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/jameshageman/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/jameshageman/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/jameshageman/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/jameshageman/perl5"; export PERL_MM_OPT;
+
+eval "$(pyenv init -)"
