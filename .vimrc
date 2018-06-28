@@ -10,6 +10,7 @@ Plugin 'ap/vim-buftabline'
 Plugin 'ervandew/supertab'
 Plugin 'rakr/vim-one'
 
+
 if (has("nvim"))
   Plugin 'scrooloose/nerdtree'
   Plugin 'airblade/vim-gitgutter'
@@ -44,6 +45,8 @@ set noswapfile " disable swap files
 set visualbell
 set t_vb= " disable the bell
 set tags=tags
+set mouse=a
+set clipboard=unnamed
 
 let mapleader=" "
 let NERDTreeIgnore = ['\.class$']
