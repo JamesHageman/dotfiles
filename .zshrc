@@ -42,7 +42,4 @@ export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 function set_iterm2_profile() {
   echo -e "\033]50;SetProfile=$1\a"
 }
-
-if [ -x "$(command -v foo)" ]; then
-  eval "$(chef shell-init zsh)"
-fi
+eval "$(rbenv init -)"
