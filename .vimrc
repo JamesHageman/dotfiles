@@ -1,7 +1,7 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'junegunn/fzf'
@@ -10,17 +10,13 @@ Plugin 'ap/vim-buftabline'
 Plugin 'ervandew/supertab'
 Plugin 'rakr/vim-one'
 
-
-if (has("nvim"))
+if (has('nvim'))
   Plugin 'scrooloose/nerdtree'
   Plugin 'airblade/vim-gitgutter'
   Plugin 'editorconfig/editorconfig-vim'
   Plugin 'w0rp/ale'
-  Plugin 'fatih/vim-go'
-  Plugin 'Shougo/deoplete.nvim'
-  Plugin 'zchee/deoplete-go'
+  Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plugin 'autozimu/LanguageClient-neovim'
-  let g:deoplete#enable_at_startup = 1
 endif
 
 call vundle#end()
@@ -48,7 +44,7 @@ set tags=tags
 set mouse=a
 set clipboard=unnamed
 
-let mapleader=" "
+let mapleader=' '
 let NERDTreeIgnore = ['\.class$']
 
 noremap <Leader>w :w<CR>
@@ -75,7 +71,7 @@ nmap ; :
 map <C-n> :call MyExplore()<CR>
 
 function MyExplore()
-  if (has("nvim"))
+  if (has('nvim'))
     NERDTree
   elseif getbufvar(winbufnr(winnr()), "&filetype") == "netrw"
     Rexplore " toggle netrw
