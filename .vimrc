@@ -10,14 +10,29 @@ Plugin 'ap/vim-buftabline'
 Plugin 'ervandew/supertab'
 Plugin 'rakr/vim-one'
 
-if (has('nvim'))
+"if (has('nvim'))
   Plugin 'scrooloose/nerdtree'
   Plugin 'airblade/vim-gitgutter'
   Plugin 'editorconfig/editorconfig-vim'
   Plugin 'w0rp/ale'
   Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  Plugin 'autozimu/LanguageClient-neovim'
-endif
+  Plugin 'rust-lang/rust.vim'
+  Plugin 'racer-rust/vim-racer'
+  Plugin 'hashivim/vim-terraform'
+  Plugin 'artur-shaik/vim-javacomplete2'
+"  Plugin 'reasonml-editor/vim-reason-plus'
+
+
+"  Plugin 'Shougo/deoplete.nvim'
+"  Plugin 'roxma/nvim-yarp'
+"  Plugin 'roxma/vim-hug-neovim-rpc'
+"  Plugin 'zchee/deoplete-go', { 'do': 'make'}
+"  Plugin 'autozimu/LanguageClient-neovim'
+"endif
+
+Plugin 'rhysd/vim-grammarous'
+Plugin 'sbdchd/neoformat'
+Plugin 'Akin909/vim-dune'
 
 call vundle#end()
 filetype plugin indent on
@@ -45,7 +60,17 @@ set mouse=a
 set clipboard=unnamed
 
 let mapleader=' '
-let NERDTreeIgnore = ['\.class$']
+let NERDTreeIgnore = ['\.class$', '\.d$', '\.o$']
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:SuperTabDefaultCompletionType = 'context'
+"let g:neoformat_ocaml_ocamlformat = {
+"            \ 'exe': 'ocamlformat',
+"            \ 'args': ['--disable-outside-detected-project']
+"            \ }
+
+let g:neoformat_enabled_ocaml = ['ocamlformat']
+let g:neoformat_enabled_javascript = []
 
 noremap <Leader>w :w<CR>
 noremap <Leader>q :q<CR>
@@ -88,17 +113,26 @@ endfunction
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * call Enter()
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+autocmd FileType java setlocal tabstop=4 shiftwidth=4 expandtab
 
 if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  call ale#Set('cpp_gcc_options', '-std=c++14 -Wall -I/opt/X11/include')
   map <C-n> :NERDTreeToggle<CR>
   set rtp+=~/.vim/bundle/LanguageClient-neovim
-  let g:ale_linters = {'go': ['gometalinter', 'gofmt'], 'python': ['pycodestyle']}
-  let g:ale_fixers = {'python': ['autopep8']}
 endif
 
-if (has("termguicolors"))
+let g:ale_linters = {'go': ['golint'], 'python': ['pycodestyle'], 'sh': ['shellcheck']}
+let g:ale_fixers = {'python': ['autopep8']}
+let g:go_fmt_command = "goimports"
+let g:ale_go_langserver_executable = 'gopls'
+
+let g:rustfmt_autosave = 1
+
+let g:ale_cpp_gcc_options =  '-std=c++14 -Wall -Wextra -Wconversion -I/opt/X11/include -I../include'
+let g:ale_c_gcc_options =  '-std=c11 -Wall -Wextra -Wconversion -Wunused-but-set-variable -I. -I../include'
+
+if (has('termguicolors'))
   set termguicolors
 endif
 
@@ -118,3 +152,46 @@ endif
 if $ITERM_PROFILE == "Dark"
   set background=dark
 endif
+
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
+" ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
+" let s:opam_share_dir = system("opam config var share")
+" let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+"
+" let s:opam_configuration = {}
+"
+" function! OpamConfOcpIndent()
+"   execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
+" endfunction
+" let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
+"
+" function! OpamConfOcpIndex()
+"   execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
+" endfunction
+" let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
+"
+" function! OpamConfMerlin()
+"   let l:dir = s:opam_share_dir . "/merlin/vim"
+"   execute "set rtp+=" . l:dir
+" endfunction
+" let s:opam_configuration['merlin'] = function('OpamConfMerlin')
+"
+" let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
+" let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
+" let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
+" for tool in s:opam_packages
+"   " Respect package order (merlin should be after ocp-index)
+"   if count(s:opam_available_tools, tool) > 0
+"     call s:opam_configuration[tool]()
+"   endif
+" endfor
+" " ## end of OPAM user-setup addition for vim / base ## keep this line
+" " ## added by OPAM user-setup for vim / ocp-indent ## ac2e25d49465f4b9a5283e3c66fd7f83 ## you can edit, but keep this line
+" if count(s:opam_available_tools,"ocp-indent") == 0
+"   source "~/.opam/default/share/ocp-indent/vim/indent/ocaml.vim"
+" endif
+" " ## end of OPAM user-setup addition for vim / ocp-indent ## keep this line
