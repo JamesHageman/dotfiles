@@ -20,6 +20,8 @@ Plugin 'rakr/vim-one'
   Plugin 'racer-rust/vim-racer'
   Plugin 'hashivim/vim-terraform'
   Plugin 'artur-shaik/vim-javacomplete2'
+  Plugin 'jez/vim-better-sml'
+  Plugin 'leafgarland/typescript-vim'
 "  Plugin 'reasonml-editor/vim-reason-plus'
 
 
@@ -69,8 +71,12 @@ let g:SuperTabDefaultCompletionType = 'context'
 "            \ 'args': ['--disable-outside-detected-project']
 "            \ }
 
+let g:neoformat_enabled_typescript = []
+let g:neoformat_enabled_json = []
 let g:neoformat_enabled_ocaml = ['ocamlformat']
 let g:neoformat_enabled_javascript = []
+let g:neoformat_enabled_mardown = ['remark']
+let g:neoformat_enabled_asm = []
 
 noremap <Leader>w :w<CR>
 noremap <Leader>q :q<CR>
@@ -129,8 +135,8 @@ let g:ale_go_langserver_executable = 'gopls'
 
 let g:rustfmt_autosave = 1
 
-let g:ale_cpp_gcc_options =  '-std=c++14 -Wall -Wextra -Wconversion -I/opt/X11/include -I../include'
-let g:ale_c_gcc_options =  '-std=c11 -Wall -Wextra -Wconversion -Wunused-but-set-variable -I. -I../include'
+let g:ale_cpp_gcc_options =  '-std=c++17 -m32 -Wall -Wextra -Wconversion -Wpedantic -I/opt/X11/include -I../include'
+let g:ale_c_gcc_options =  '-std=c11 -m32 -Wall -Wextra -Wconversion -Wunused-but-set-variable -I. -I../include'
 
 if (has('termguicolors'))
   set termguicolors
