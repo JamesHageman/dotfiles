@@ -11,7 +11,7 @@ Plugin 'ervandew/supertab'
 Plugin 'rakr/vim-one'
 
 "if (has('nvim'))
-  Plugin 'scrooloose/nerdtree'
+  " Plugin 'scrooloose/nerdtree'
   Plugin 'airblade/vim-gitgutter'
   Plugin 'editorconfig/editorconfig-vim'
   Plugin 'w0rp/ale'
@@ -19,20 +19,22 @@ Plugin 'rakr/vim-one'
   Plugin 'rust-lang/rust.vim'
   Plugin 'racer-rust/vim-racer'
   Plugin 'hashivim/vim-terraform'
-  Plugin 'artur-shaik/vim-javacomplete2'
-  Plugin 'jez/vim-better-sml'
+  " Plugin 'artur-shaik/vim-javacomplete2'
+  " Plugin 'jez/vim-better-sml'
   Plugin 'leafgarland/typescript-vim'
+  Plugin 'Quramy/tsuquyomi'
 "  Plugin 'reasonml-editor/vim-reason-plus'
 
+" if has('nvim')
+"   Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plugin 'Shougo/deoplete.nvim'
+"   Plugin 'roxma/nvim-yarp'
+"   Plugin 'roxma/vim-hug-neovim-rpc'
+" endif
+" let g:deoplete#enable_at_startup = 1
 
-"  Plugin 'Shougo/deoplete.nvim'
-"  Plugin 'roxma/nvim-yarp'
-"  Plugin 'roxma/vim-hug-neovim-rpc'
-"  Plugin 'zchee/deoplete-go', { 'do': 'make'}
-"  Plugin 'autozimu/LanguageClient-neovim'
-"endif
-
-Plugin 'rhysd/vim-grammarous'
+"Plugin 'rhysd/vim-grammarous'
 Plugin 'sbdchd/neoformat'
 Plugin 'Akin909/vim-dune'
 
@@ -65,16 +67,14 @@ let mapleader=' '
 let NERDTreeIgnore = ['\.class$', '\.d$', '\.o$']
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:SuperTabDefaultCompletionType = 'context'
-"let g:neoformat_ocaml_ocamlformat = {
-"            \ 'exe': 'ocamlformat',
-"            \ 'args': ['--disable-outside-detected-project']
-"            \ }
+let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+inoremap <c-@> <c-x><c-o>
+let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
 
-let g:neoformat_enabled_typescript = []
-let g:neoformat_enabled_json = []
+let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_ocaml = ['ocamlformat']
-let g:neoformat_enabled_javascript = []
+let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_typescript = ['prettier']
 let g:neoformat_enabled_mardown = ['remark']
 let g:neoformat_enabled_asm = []
 
@@ -122,13 +122,15 @@ autocmd VimEnter * call Enter()
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd FileType java setlocal tabstop=4 shiftwidth=4 expandtab
 
+autocmd BufRead,BufNewFile *.pro set filetype=prolog
+
 if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   map <C-n> :NERDTreeToggle<CR>
   set rtp+=~/.vim/bundle/LanguageClient-neovim
 endif
 
-let g:ale_linters = {'go': ['golint'], 'python': ['pycodestyle'], 'sh': ['shellcheck']}
+let g:ale_linters = {'go': ['golint'], 'python': ['pycodestyle'], 'sh': ['shellcheck'], 'prolog': ['swipl']}
 let g:ale_fixers = {'python': ['autopep8']}
 let g:go_fmt_command = "goimports"
 let g:ale_go_langserver_executable = 'gopls'
@@ -165,39 +167,39 @@ augroup fmt
 augroup END
 
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
-" let s:opam_share_dir = system("opam config var share")
-" let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
-"
-" let s:opam_configuration = {}
-"
-" function! OpamConfOcpIndent()
-"   execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
-" endfunction
-" let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
-"
-" function! OpamConfOcpIndex()
-"   execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
-" endfunction
-" let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
-"
-" function! OpamConfMerlin()
-"   let l:dir = s:opam_share_dir . "/merlin/vim"
-"   execute "set rtp+=" . l:dir
-" endfunction
-" let s:opam_configuration['merlin'] = function('OpamConfMerlin')
-"
-" let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
-" let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
-" let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
-" for tool in s:opam_packages
-"   " Respect package order (merlin should be after ocp-index)
-"   if count(s:opam_available_tools, tool) > 0
-"     call s:opam_configuration[tool]()
-"   endif
-" endfor
-" " ## end of OPAM user-setup addition for vim / base ## keep this line
-" " ## added by OPAM user-setup for vim / ocp-indent ## ac2e25d49465f4b9a5283e3c66fd7f83 ## you can edit, but keep this line
-" if count(s:opam_available_tools,"ocp-indent") == 0
-"   source "~/.opam/default/share/ocp-indent/vim/indent/ocaml.vim"
-" endif
-" " ## end of OPAM user-setup addition for vim / ocp-indent ## keep this line
+let s:opam_share_dir = system("opam config var share")
+let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+
+let s:opam_configuration = {}
+
+function! OpamConfOcpIndent()
+  execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
+endfunction
+let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
+
+function! OpamConfOcpIndex()
+  execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
+endfunction
+let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
+
+function! OpamConfMerlin()
+  let l:dir = s:opam_share_dir . "/merlin/vim"
+  execute "set rtp+=" . l:dir
+endfunction
+let s:opam_configuration['merlin'] = function('OpamConfMerlin')
+
+let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
+let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
+let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
+for tool in s:opam_packages
+  " Respect package order (merlin should be after ocp-index)
+  if count(s:opam_available_tools, tool) > 0
+    call s:opam_configuration[tool]()
+  endif
+endfor
+" ## end of OPAM user-setup addition for vim / base ## keep this line
+" ## added by OPAM user-setup for vim / ocp-indent ## ac2e25d49465f4b9a5283e3c66fd7f83 ## you can edit, but keep this line
+if count(s:opam_available_tools,"ocp-indent") == 0
+  source "~/.opam/default/share/ocp-indent/vim/indent/ocaml.vim"
+endif
+" ## end of OPAM user-setup addition for vim / ocp-indent ## keep this line
